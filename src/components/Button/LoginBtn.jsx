@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import LoginAPI from "../../apis/Login/LoginAPI";
 import styled from "styled-components";
 
@@ -19,6 +20,7 @@ const LoginBtnStyle = styled.button`
 `;
 
 const LoginBtn = ({ valid }) => {
+  const navigate = useNavigate();
   // 로그인 API 요청
   const clickLogin = async (event) => {
     event.preventDefault();
@@ -27,7 +29,10 @@ const LoginBtn = ({ valid }) => {
     const pw = input[1].value;
     try {
       const res = await LoginAPI(email, pw);
-      console.log(res);
+      if (res.status === 200 || res.status === 201) {
+        localStorage.setItem("Token", res.data.access_token);
+        navigate("/todo");
+      }
     } catch (error) {
       console.error(error);
     }

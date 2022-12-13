@@ -46,7 +46,7 @@ const InputForm = () => {
       <input type="password" placeholder="패스워드" required onChange={changeLoginInput} />
       <FormBtnContainer>
         <LoginBtn valid={valid} />
-        <JoinBtn />
+        <JoinBtn valid={valid} />
       </FormBtnContainer>
     </FormStyle>
   );

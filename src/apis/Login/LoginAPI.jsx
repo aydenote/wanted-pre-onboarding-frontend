@@ -2,7 +2,7 @@ import axios from "axios";
 
 const LoginAPI = (userEmail, userPw) => {
   return axios({
-    url: "https://pre-onboarding-selection-task.shop/auth/signup",
+    url: "https://pre-onboarding-selection-task.shop/auth/signin",
     method: "post",
     headers: {
       "Content-Type": "application/json",
