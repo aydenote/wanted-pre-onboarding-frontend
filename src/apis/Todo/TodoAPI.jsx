@@ -26,29 +26,29 @@ export const getTodoAPI = () => {
   });
 };
 
-// export const updateTodoAPI = (content) => {
-// const token = localStorage.getItem("Token");
-//   return axios({
-//     url: `https://pre-onboarding-selection-task.shop/todos/:${id}`,
-//     method: "put",
-//     headers: {
-//       Authorization: token,
-//       "Content-Type": "application/json",
-//     },
-//     data: {
-//       todo: content,
-//       isCompleted: true, // boolean
-//     },
-//   });
-// };
+export const updateTodoAPI = (id, content) => {
+  const token = localStorage.getItem("Token");
+  return axios({
+    url: `https://pre-onboarding-selection-task.shop/todos/:${id}`,
+    method: "put",
+    headers: {
+      Authorization: token,
+      "Content-Type": "application/json",
+    },
+    data: {
+      todo: content,
+      isCompleted: true, // boolean
+    },
+  });
+};
 
-// export const deleteTodoAPI = (content) => {
-// const token = localStorage.getItem("Token");
-//   return axios({
-//     url: `https://pre-onboarding-selection-task.shop/todos/:${id}`,
-//     method: "DELETE",
-//     headers: {
-//       Authorization: token,
-//     },
-//   });
-// };
+export const deleteTodoAPI = (id) => {
+  const token = localStorage.getItem("Token");
+  return axios({
+    url: `https://pre-onboarding-selection-task.shop/todos/:${id}`,
+    method: "DELETE",
+    headers: {
+      Authorization: token,
+    },
+  });
+};

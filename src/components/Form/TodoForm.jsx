@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import { getTodoAPI } from "../../apis/Todo/TodoAPI";
 import TaskList from "../Task/TaskList";
 import TaskAdd from "../Task/TaskAdd";
@@ -7,7 +7,7 @@ import styled from "styled-components";
 // 스타일 정의
 const TodoContainer = styled("section")`
   max-width: 768px;
-  margin: auto;
+  margin: 40px auto;
   padding: 30px;
   background-color: #f2f2f2;
 `;

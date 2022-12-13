@@ -45,7 +45,6 @@ const TaskAdd = ({ setTaskData, taskData }) => {
     try {
       const res = await createTodoAPI(task);
       if (res.status === 200 || res.status === 201) {
-        console.log(res.data);
         setTaskData([...taskData, res.data]);
       }
     } catch (error) {
