@@ -9,16 +9,20 @@ const DeleteBtn = styled("button")`
   background-color: #ffffff;
 `;
 
-const TaskDelete = () => {
-  // Todo 생성 API 요청
-  const createTask = async (event) => {
-    const id = document.querySelector("input").value;
+const TaskDelete = ({ taskData, setTaskData }) => {
+  // Todo 삭제 API 요청
+  const deleteTask = async (event) => {
+    const id = event.target.closest("li").dataset.id;
     try {
       const res = await deleteTodoAPI(id);
+      if (res.status === 204) {
+        const newTask = taskData.filter((item) => item.id != id);
+        setTaskData(newTask);
+      }
     } catch (error) {
       console.error(error);
     }
   };
-  return <DeleteBtn>삭제</DeleteBtn>;
+  return <DeleteBtn onClick={deleteTask}>삭제</DeleteBtn>;
 };
 export default TaskDelete;

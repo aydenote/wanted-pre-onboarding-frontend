@@ -23,7 +23,7 @@ const TaskContainer = styled("section")`
   }
 `;
 
-const TaskList = ({ taskData }) => {
+const TaskList = ({ taskData, setTaskData }) => {
   const [mode, setMode] = useState("");
 
   return (
@@ -33,7 +33,7 @@ const TaskList = ({ taskData }) => {
           {taskData.map((item) => (
             <li key={item.id} data-id={item.id}>
               {item.todo}
-              <div>{mode ? <TaskUpdate setMode={setMode} /> : <TaskUpdateMode setMode={setMode} />}</div>
+              <div>{mode ? <TaskUpdate setMode={setMode} /> : <TaskUpdateMode setMode={setMode} taskData={taskData} setTaskData={setTaskData} />}</div>
             </li>
           ))}
         </ul>

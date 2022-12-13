@@ -7,14 +7,14 @@ const TaskUpdateModeBtn = styled("button")`
   background-color: #ffefe8;
 `;
 
-const TaskUpdateMode = ({ setMode }) => {
+const TaskUpdateMode = ({ setMode, taskData, setTaskData }) => {
   const clickUpdateMode = () => {
     setMode("update");
   };
   return (
     <>
       <TaskUpdateModeBtn onClick={clickUpdateMode}>수정</TaskUpdateModeBtn>
-      <TaskDelete />
+      <TaskDelete taskData={taskData} setTaskData={setTaskData} />
     </>
   );
 };

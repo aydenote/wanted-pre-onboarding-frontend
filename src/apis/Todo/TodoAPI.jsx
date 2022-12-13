@@ -29,10 +29,10 @@ export const getTodoAPI = () => {
 export const updateTodoAPI = (id, content) => {
   const token = localStorage.getItem("Token");
   return axios({
-    url: `https://pre-onboarding-selection-task.shop/todos/:${id}`,
+    url: `https://pre-onboarding-selection-task.shop/todos/${id}`,
     method: "put",
     headers: {
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     data: {
@@ -45,10 +45,10 @@ export const updateTodoAPI = (id, content) => {
 export const deleteTodoAPI = (id) => {
   const token = localStorage.getItem("Token");
   return axios({
-    url: `https://pre-onboarding-selection-task.shop/todos/:${id}`,
+    url: `https://pre-onboarding-selection-task.shop/todos/${id}`,
     method: "DELETE",
     headers: {
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   });
 };

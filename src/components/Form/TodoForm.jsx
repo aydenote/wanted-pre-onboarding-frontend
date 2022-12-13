@@ -19,11 +19,12 @@ const Title = styled("h1")`
 `;
 
 const TodoForm = () => {
-  const [taskData, setTaskData] = useState(false);
+  const [taskData, setTaskData] = useState([]);
 
   // Todo 작업 수신 API 요청
   const getTodoList = async () => {
     const res = await getTodoAPI();
+
     if (res.data.length >= 1) {
       setTaskData(res.data);
     }
@@ -35,7 +36,7 @@ const TodoForm = () => {
   return (
     <TodoContainer>
       <Title>To Do : </Title>
-      {taskData ? <TaskList taskData={taskData} /> : null}
+      {taskData ? <TaskList taskData={taskData} setTaskData={setTaskData} /> : null}
       <TaskAdd setTaskData={setTaskData} taskData={taskData} />
     </TodoContainer>
   );
