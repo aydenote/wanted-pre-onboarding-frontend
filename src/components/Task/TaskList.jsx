@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 // 스타일 정의
@@ -17,15 +18,19 @@ const TaskContainer = styled("section")`
   }
 `;
 
-const TaskList = () => {
+const TaskList = ({ taskData }) => {
   return (
-    <TaskContainer>
-      <ul>
-        <li>운동</li>
-        <li>공부</li>
-        <li>요리</li>
-      </ul>
-    </TaskContainer>
+    <>
+      <TaskContainer>
+        <ul>
+          {taskData.map((item) => (
+            <li key={item.id} data-id={item.id}>
+              {item.todo}
+            </li>
+          ))}
+        </ul>
+      </TaskContainer>
+    </>
   );
 };
 export default TaskList;

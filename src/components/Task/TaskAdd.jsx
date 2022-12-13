@@ -1,3 +1,4 @@
+import { createTodoAPI } from "../../apis/Todo/TodoAPI";
 import styled from "styled-components";
 
 // 스타일 정의
@@ -37,13 +38,26 @@ const TaskAddBtnStyle = styled("button")`
   color: #ffffff;
 `;
 
-const TaskAddBtn = () => {
+const TaskAdd = ({ setTaskData, taskData }) => {
+  // Todo 생성 API 요청
+  const createTask = async (event) => {
+    const task = document.querySelector("input").value;
+    try {
+      const res = await createTodoAPI(task);
+      if (res.status === 200 || res.status === 201) {
+        console.log(res.data);
+        setTaskData([...taskData, res.data]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <TaskAddContainer>
       <p>Task</p>
       <InputTask type="text" placeholder="What do you need to do ?" maxLength="16" />
-      <TaskAddBtnStyle>Add Task</TaskAddBtnStyle>
+      <TaskAddBtnStyle onClick={createTask}>Add Task</TaskAddBtnStyle>
     </TaskAddContainer>
   );
 };
-export default TaskAddBtn;
+export default TaskAdd;
