@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login/Login";
-import Join from "./pages/Join/Join";
+import MainPage from "./pages/main/MainPage";
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 
@@ -30,8 +29,8 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />}></Route>
-          {/* <Route path="/join" element={<Join />}></Route> */}
+          <Route path="/" element={<MainPage />}></Route>
+          {/* <Route path="/todo" element={<TodoPage />}></Route> */}
         </Routes>
       </BrowserRouter>
     </>
