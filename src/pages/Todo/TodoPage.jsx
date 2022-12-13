@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ToDoForm from "../../components/Form/TodoForm";
 
 // 스타일 정의
 const Title = styled("header")`
@@ -7,16 +8,19 @@ const Title = styled("header")`
   margin-bottom: 40px;
   p {
     text-align: center;
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 900;
+    font-size: 32px;
   }
 `;
 
 const TodoPage = () => {
   return (
-    <Title>
-      <p>TODO LIST</p>
-    </Title>
+    <>
+      <Title>
+        <p>TODO LIST</p>
+      </Title>
+      <ToDoForm />
+    </>
   );
 };
 export default TodoPage;
