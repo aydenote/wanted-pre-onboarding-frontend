@@ -4,9 +4,9 @@ import styled from "styled-components";
 const DeleteBtn = styled("button")`
   margin-left: 10px;
   padding: 10px;
-  border: 1px solid #c4c4c4;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #4dabf5;
+  color: #ffffff;
 `;
 
 const TaskDelete = ({ taskData, setTaskData }) => {

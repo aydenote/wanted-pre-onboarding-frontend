@@ -19,9 +19,16 @@ const CancelBtn = styled("button")`
   background-color: #c4c4c4;
   color: #ffffff;
 `;
-const TaskUpdate = ({ setMode }) => {
+const UpdateForm = ({ setMode, taskData }) => {
   const clickUpdate = () => {};
-  const clickCancel = () => {
+  const clickCancel = (event) => {
+    const pEl = document.createElement("p");
+    const currentText = event.target.closest("li").childNodes[0];
+    const key = event.target.closest("li").dataset.id;
+    const taskIndex = taskData.findIndex((item) => item.id == key);
+
+    pEl.innerText = taskData[taskIndex].todo;
+    currentText.replaceWith(pEl);
     setMode("");
   };
   return (
@@ -31,4 +38,4 @@ const TaskUpdate = ({ setMode }) => {
     </UpdateBtnContainer>
   );
 };
-export default TaskUpdate;
+export default UpdateForm;

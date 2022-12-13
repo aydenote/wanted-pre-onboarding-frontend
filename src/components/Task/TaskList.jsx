@@ -1,7 +1,7 @@
-import { useState } from "react";
-import TaskUpdateMode from "./TaskUpdateMode";
-import TaskUpdate from "./TaskUpdate";
+import ChangeBtnMode from "./ChangeBtnMode";
 import styled from "styled-components";
+import complete from "../../assets/icon-check-on.svg";
+import incomplete from "../../assets/icon-check-off.svg";
 
 // 스타일 정의
 const TaskContainer = styled("section")`
@@ -21,19 +21,39 @@ const TaskContainer = styled("section")`
     line-height: 22px;
     background-color: #ffffff;
   }
+
+  div {
+    display: flex;
+  }
+
+  img {
+    margin-left: 5px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+  }
+`;
+
+const InputText = styled("p")`
+  border: none;
+  font-size: 18px;
+  background-color: transparent;
 `;
 
 const TaskList = ({ taskData, setTaskData }) => {
-  const [mode, setMode] = useState("");
-
   return (
     <>
       <TaskContainer>
         <ul>
           {taskData.map((item) => (
             <li key={item.id} data-id={item.id}>
-              {item.todo}
-              <div>{mode ? <TaskUpdate setMode={setMode} /> : <TaskUpdateMode setMode={setMode} taskData={taskData} setTaskData={setTaskData} />}</div>
+              <InputText>{item.todo}</InputText>
+              <div>
+                {<ChangeBtnMode taskData={taskData} setTaskData={setTaskData} />}
+                {item.isCompleted ? <img src={complete} alt="완료" /> : <img src={incomplete} alt="미완료" />}
+              </div>
             </li>
           ))}
         </ul>
