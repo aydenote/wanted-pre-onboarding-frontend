@@ -26,7 +26,7 @@ export const getTodoAPI = () => {
   });
 };
 
-export const updateTodoAPI = (id, content) => {
+export const updateTodoAPI = (id, content, isComplete) => {
   const token = localStorage.getItem("Token");
   return axios({
     url: `https://pre-onboarding-selection-task.shop/todos/${id}`,
@@ -37,7 +37,7 @@ export const updateTodoAPI = (id, content) => {
     },
     data: {
       todo: content,
-      isCompleted: false,
+      isCompleted: isComplete,
     },
   });
 };

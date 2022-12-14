@@ -1,6 +1,7 @@
 import TaskDelete from "../Task/TaskDelete";
 import styled from "styled-components";
 
+// 스타일 정의
 const TaskUpdate = styled("button")`
   padding: 10px;
   border-radius: 5px;
@@ -8,6 +9,7 @@ const TaskUpdate = styled("button")`
 `;
 
 const DeleteForm = ({ setMode, taskData, setTaskData }) => {
+  // 수정 모드로 변경
   const clickUpdateMode = (event) => {
     const inputEl = document.createElement("input");
     const currentText = event.target.closest("li").childNodes[0];
@@ -15,6 +17,8 @@ const DeleteForm = ({ setMode, taskData, setTaskData }) => {
     currentText.replaceWith(inputEl);
     setMode("update");
   };
+
+  // 마크업
   return (
     <>
       <TaskUpdate onClick={clickUpdateMode}>수정</TaskUpdate>

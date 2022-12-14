@@ -1,15 +1,12 @@
 import ChangeBtnMode from "./ChangeBtnMode";
 import styled from "styled-components";
-import complete from "../../assets/icon-check-on.svg";
-import incomplete from "../../assets/icon-check-off.svg";
+import CompleteImg from "./CompleteImg";
 
 // 스타일 정의
-const TaskContainer = styled("section")`
+const TaskContainer = styled("ul")`
   margin: auto;
-  ul {
-    max-width: 480px;
-    margin: auto;
-  }
+  max-width: 480px;
+
   li {
     display: flex;
     justify-content: space-between;
@@ -20,6 +17,7 @@ const TaskContainer = styled("section")`
     font-size: 18px;
     line-height: 22px;
     background-color: #ffffff;
+
     input {
       border: none;
       border-bottom: 1px solid #c4c4c4;
@@ -44,22 +42,19 @@ const InputText = styled("p")`
 `;
 
 const TaskList = ({ taskData, setTaskData }) => {
+  // 마크업
   return (
-    <>
-      <TaskContainer>
-        <ul>
-          {taskData.map((item) => (
-            <li key={item.id} data-id={item.id}>
-              <InputText>{item.todo}</InputText>
-              <div>
-                {<ChangeBtnMode taskData={taskData} setTaskData={setTaskData} />}
-                {item.isCompleted ? <img src={complete} alt="완료" /> : <img src={incomplete} alt="미완료" />}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </TaskContainer>
-    </>
+    <TaskContainer>
+      {taskData.map((item) => (
+        <li key={item.id} data-id={item.id}>
+          <InputText>{item.todo}</InputText>
+          <div>
+            <ChangeBtnMode taskData={taskData} setTaskData={setTaskData} />
+            <CompleteImg itemCompleted={item.isCompleted} />
+          </div>
+        </li>
+      ))}
+    </TaskContainer>
   );
 };
 export default TaskList;

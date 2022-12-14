@@ -29,8 +29,7 @@ const JoinBtn = ({ valid }) => {
     const pw = input[1].value;
     try {
       const res = await JoinAPI(email, pw);
-      console.log(res);
-      if (res.status === 200) {
+      if (res.status === 200 || res.status === 201) {
         localStorage.setItem("Token", res.data.access_token);
         navigate("/todo");
       }

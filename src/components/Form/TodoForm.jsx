@@ -21,7 +21,7 @@ const Title = styled("h1")`
 const TodoForm = () => {
   const [taskData, setTaskData] = useState([]);
 
-  // Todo 작업 수신 API 요청
+  // 사용자 ToDoList API 요청
   const getTodoList = async () => {
     try {
       const res = await getTodoAPI();
@@ -33,9 +33,12 @@ const TodoForm = () => {
     }
   };
 
+  // 페인트 전 최초 실행
   useLayoutEffect(() => {
     getTodoList();
   }, []);
+
+  // 마크업
   return (
     <TodoContainer>
       <Title>To Do : </Title>

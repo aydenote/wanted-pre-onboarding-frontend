@@ -40,8 +40,8 @@ const TaskAddBtnStyle = styled("button")`
 
 const TaskAdd = ({ setTaskData, taskData }) => {
   // Todo 생성 API 요청
-  const createTask = async (event) => {
-    const task = document.querySelector(".inputData").value;
+  const createTask = async () => {
+    let task = document.querySelector(".inputData").value;
     try {
       const res = await createTodoAPI(task);
       if (res.status === 200 || res.status === 201) {
