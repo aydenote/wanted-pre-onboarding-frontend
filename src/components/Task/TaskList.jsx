@@ -20,6 +20,12 @@ const TaskContainer = styled("section")`
     font-size: 18px;
     line-height: 22px;
     background-color: #ffffff;
+    input {
+      border: none;
+      border-bottom: 1px solid #c4c4c4;
+      outline: none;
+      font-size: 18px;
+    }
   }
 
   div {
@@ -28,11 +34,6 @@ const TaskContainer = styled("section")`
 
   img {
     margin-left: 5px;
-  }
-
-  input {
-    border: none;
-    border-bottom: 1px solid #c4c4c4;
   }
 `;
 
