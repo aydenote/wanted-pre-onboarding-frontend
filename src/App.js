@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./pages/Main/MainPage";
+import Mainpage from "./pages/Main/Mainpage";
 import TodoPage from "./pages/Todo/TodoPage";
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
@@ -31,7 +31,7 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={isToken ? <TodoPage /> : <MainPage />}></Route>
+          <Route path="/" element={isToken ? <TodoPage /> : <Mainpage />}></Route>
           <Route path="/todo" element={<TodoPage />}></Route>
         </Routes>
       </BrowserRouter>
