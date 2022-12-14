@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Mainpage from "./pages/Main/Mainpage";
+import Mainpage from "./pages/Main/MainPage";
 import TodoPage from "./pages/Todo/TodoPage";
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";

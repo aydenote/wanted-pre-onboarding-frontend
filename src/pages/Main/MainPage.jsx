@@ -14,7 +14,7 @@ const Title = styled("header")`
 `;
 
 // 마크업
-const Mainpage = () => {
+const MainPage = () => {
   return (
     <>
       <Title>
@@ -25,4 +25,4 @@ const Mainpage = () => {
   );
 };
 
-export default Mainpage;
+export default MainPage;
