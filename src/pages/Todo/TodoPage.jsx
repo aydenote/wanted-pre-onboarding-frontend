@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import { Navigate } from "react-router-dom";
 import ToDoForm from "../../components/Form/TodoForm";
+import styled from "styled-components";
 
 // 스타일 정의
 const Title = styled("header")`
@@ -14,13 +15,16 @@ const Title = styled("header")`
 `;
 
 const TodoPage = () => {
-  return (
+  const token = localStorage.getItem("Token");
+  return token ? (
     <>
       <Title>
         <p>TODO LIST</p>
       </Title>
       <ToDoForm />
     </>
+  ) : (
+    <Navigate to="/" replace />
   );
 };
 export default TodoPage;
