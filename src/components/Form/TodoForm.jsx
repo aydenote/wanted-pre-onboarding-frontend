@@ -23,10 +23,13 @@ const TodoForm = () => {
 
   // Todo 작업 수신 API 요청
   const getTodoList = async () => {
-    const res = await getTodoAPI();
-
-    if (res.data.length >= 1) {
-      setTaskData(res.data);
+    try {
+      const res = await getTodoAPI();
+      if (res.data.length >= 1) {
+        setTaskData(res.data);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 

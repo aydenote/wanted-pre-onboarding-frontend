@@ -11,7 +11,6 @@ const DeleteForm = ({ setMode, taskData, setTaskData }) => {
   const clickUpdateMode = (event) => {
     const inputEl = document.createElement("input");
     const currentText = event.target.closest("li").childNodes[0];
-
     inputEl.value = currentText.innerText;
     currentText.replaceWith(inputEl);
     setMode("update");

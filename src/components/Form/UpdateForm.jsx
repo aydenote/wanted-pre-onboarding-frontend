@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { updateTodoAPI } from "../../apis/Todo/TodoAPI";
 
 const UpdateBtnContainer = styled("section")`
   display: flex;
@@ -19,8 +20,31 @@ const CancelBtn = styled("button")`
   background-color: #c4c4c4;
   color: #ffffff;
 `;
-const UpdateForm = ({ setMode, taskData }) => {
-  const clickUpdate = () => {};
+
+const UpdateForm = ({ setMode, taskData, setTaskData }) => {
+  // 내용 수정 요청
+  const clickUpdate = async (event) => {
+    const id = event.target.closest("li").dataset.id;
+    const content = event.target.closest("li").childNodes[0].value;
+    try {
+      const res = await updateTodoAPI(id, content);
+      if (res.status === 200) {
+        const pEl = document.createElement("p");
+        const currentText = event.target.closest("li").childNodes[0];
+        const targetId = event.target.closest("li").dataset.id;
+        const taskIndex = taskData.findIndex((item) => item.id == targetId);
+        taskData[taskIndex].todo = currentText.value;
+        pEl.innerText = taskData[taskIndex].todo;
+        currentText.replaceWith(pEl);
+        setTaskData(taskData);
+        setMode("");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // 내용 수정 취소
   const clickCancel = (event) => {
     const pEl = document.createElement("p");
     const currentText = event.target.closest("li").childNodes[0];

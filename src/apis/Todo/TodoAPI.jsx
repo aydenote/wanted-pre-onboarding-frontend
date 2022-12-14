@@ -37,7 +37,7 @@ export const updateTodoAPI = (id, content) => {
     },
     data: {
       todo: content,
-      isCompleted: true, // boolean
+      isCompleted: false,
     },
   });
 };
