@@ -1,4 +1,4 @@
-import { createTodoAPI } from "../../apis/Todo/TodoAPI";
+import { createTodoAPI } from "../../apis/TodoAPI";
 import styled from "styled-components";
 
 // 스타일 정의

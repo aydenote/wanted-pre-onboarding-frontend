@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react";
-import { getTodoAPI } from "../../apis/Todo/TodoAPI";
+import { getTodoAPI } from "../../apis/TodoAPI";
 import TaskList from "../Task/TaskList";
 import TaskAdd from "../Task/TaskAdd";
 import styled from "styled-components";

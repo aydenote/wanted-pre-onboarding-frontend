@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { updateTodoAPI } from "../../apis/Todo/TodoAPI";
+import { updateTodoAPI } from "../../apis/TodoAPI";
 import CompleteBtn from "../Button/CompleteBtn";
 import styled from "styled-components";
 

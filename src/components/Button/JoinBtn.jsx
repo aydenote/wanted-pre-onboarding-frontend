@@ -1,4 +1,4 @@
-import JoinAPI from "../../apis/Join/JoinAPI";
+import JoinAPI from "../../apis/JoinAPI";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 

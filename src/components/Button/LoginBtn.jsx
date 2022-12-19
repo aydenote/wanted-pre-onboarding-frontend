@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import LoginAPI from "../../apis/Login/LoginAPI";
+import LoginAPI from "../../apis/LoginAPI";
 import styled from "styled-components";
 
 // 스타일 정의

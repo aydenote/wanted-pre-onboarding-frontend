@@ -1,4 +1,4 @@
-import { deleteTodoAPI } from "../../apis/Todo/TodoAPI";
+import { deleteTodoAPI } from "../../apis/TodoAPI";
 import styled from "styled-components";
 
 const DeleteBtn = styled("button")`
