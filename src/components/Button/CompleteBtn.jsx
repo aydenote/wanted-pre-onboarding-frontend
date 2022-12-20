@@ -14,7 +14,7 @@ const CompleteBtn = ({ setComplete }) => {
     event.target.parentNode.nextSibling.alt === "미완료" ? setComplete(true) : setComplete(false);
   };
 
-  return <CompleteStyle onClick={clickComplete}>완료</CompleteStyle>;
+  return <CompleteStyle onClick={clickComplete}>완료</CompleteStyle>
 };
 
 export default CompleteBtn;

@@ -33,7 +33,6 @@ const TodoForm = () => {
     }
   };
 
-  // 페인트 전 최초 실행
   useLayoutEffect(() => {
     getTodoList();
   }, []);
